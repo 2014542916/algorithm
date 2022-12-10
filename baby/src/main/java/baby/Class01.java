@@ -1,12 +1,14 @@
 package baby;
 
+import util.ArrRandom;
+
 /**
  * 输出int类型的二进制
  *
  * @author lihaojie
  * @date 2022/11/05 18:06
  **/
-public class test01 {
+public class Class01 {
     public static void main(String[] args) {
         int[] a = {6,5,4,3,2,1};
         for (int i : a) {
@@ -17,7 +19,7 @@ public class test01 {
         for (int i : a) {
             System.out.print(i);
         }
-
+        int[] ints = ArrRandom.arrRandom(10, 10);
     }
     /**
      * 二进制打印
