@@ -1,4 +1,4 @@
-package baby;
+package primary;
 
 import util.ArrRandom;
 import util.Arrays;

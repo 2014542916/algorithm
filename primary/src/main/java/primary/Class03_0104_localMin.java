@@ -1,4 +1,4 @@
-package baby;
+package primary;
 
 /**
  * 二分法：返回局部最小

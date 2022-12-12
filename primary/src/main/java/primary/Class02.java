@@ -1,6 +1,6 @@
-package baby;
+package primary;
 
-import static baby.Class01.insertSort2;
+import static primary.Class01.insertSort2;
 
 /**
  * 第二次课：数据结构，前缀和，对数器
