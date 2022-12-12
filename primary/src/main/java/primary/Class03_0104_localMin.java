@@ -11,8 +11,8 @@ package primary;
  **/
 public class Class03_0104_localMin {
     public static void main(String[] args) {
-        int testTimes = 500000;
-        int maxLen = 5;
+        int testTimes = 5000;
+        int maxLen = 10;
         int maxValue = 20;
         boolean succeed = true;
         for (int i = 0; i < testTimes; i++) {
@@ -96,9 +96,9 @@ public class Class03_0104_localMin {
                 ans = mid;
                 break;
             } else if (arr[mid] < arr[mid + 1] && arr[mid] > arr[mid - 1]) {
-                R = mid + 1;
+                R = mid ;
             } else if (arr[mid] > arr[mid + 1] && arr[mid] < arr[mid - 1]) {
-                L = mid - 1;
+                L = mid;
             } else {
                 R = mid;
             }

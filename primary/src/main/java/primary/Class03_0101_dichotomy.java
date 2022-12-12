@@ -1,6 +1,5 @@
 package primary;
 
-import util.ArrRandom;
 import util.Arrays;
 
 /**
@@ -17,7 +16,7 @@ public class Class03_0101_dichotomy {
         int maxValue = 100;
         boolean succeed = true;
         for (int i = 0; i < testTimes; i++) {
-            int[] arr = ArrRandom.arrRandom(maxLen, maxValue);
+            int[] arr = Arrays.arrRandom(maxLen, maxValue);
             Arrays.upSort(arr);
             int value = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
             if (test(arr, value) != find(arr, value)) {

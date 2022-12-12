@@ -1,6 +1,5 @@
 package primary;
 
-import util.ArrRandom;
 import util.Arrays;
 
 /**
@@ -18,7 +17,7 @@ public class Class03_0102_mostLeft {
         boolean succeed = true;
         for (int i = 0; i < testTimes; i++) {
             //生成随机数组
-            int[] arrRandom = ArrRandom.arrRandom(maxLen, maxValue);
+            int[] arrRandom = Arrays.arrRandom(maxLen, maxValue);
             //数组排序  可有可无 不排序也可以
             Arrays.upSort(arrRandom);
             //生成随机value

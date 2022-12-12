@@ -1,6 +1,5 @@
 package primary;
 
-import util.ArrRandom;
 import util.Arrays;
 
 /**
@@ -18,7 +17,7 @@ public class Class03_0103_mostRightNoBig {
         boolean succeed = true;
         for (int i = 0; i < testTimes; i++) {
             //生成随机数组
-            int[] arrRandom = ArrRandom.arrRandom(maxLen, maxValue);
+            int[] arrRandom = Arrays.arrRandom(maxLen, maxValue);
             Arrays.upSort(arrRandom);
             //生成随机value
             int value = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue + Math.random());

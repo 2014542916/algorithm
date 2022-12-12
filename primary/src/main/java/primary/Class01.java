@@ -1,6 +1,6 @@
 package primary;
 
-import util.ArrRandom;
+import util.Arrays;
 
 /**
  * 输出int类型的二进制
@@ -19,7 +19,7 @@ public class Class01 {
         for (int i : a) {
             System.out.print(i);
         }
-        int[] ints = ArrRandom.arrRandom(10, 10);
+        int[] ints = Arrays.arrRandom(10, 10);
     }
     /**
      * 二进制打印
