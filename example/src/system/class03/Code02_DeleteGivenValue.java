@@ -1,4 +1,4 @@
-package class03;
+package system.class03;
 
 public class Code02_DeleteGivenValue {
 

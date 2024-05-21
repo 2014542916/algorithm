@@ -1,12 +1,20 @@
-package class04;
+package system.class04;
 
+/**
+ * 归并排序 （递归合并 -> 排序）
+ *
+ * @author lihaojie
+ * @date 2023/04/12 16:49
+ **/
 public class Code01_MergeSort {
 
 	// 递归方法实现
 	public static void mergeSort1(int[] arr) {
+		//排除边界条件
 		if (arr == null || arr.length < 2) {
 			return;
 		}
+		//递归方法排序
 		process(arr, 0, arr.length - 1);
 	}
 
@@ -18,12 +26,22 @@ public class Code01_MergeSort {
 		if (L == R) { // base case
 			return;
 		}
+		//mid = 左 + (右-左)/2
 		int mid = L + ((R - L) >> 1);
 		process(arr, L, mid);
 		process(arr, mid + 1, R);
 		merge(arr, L, mid, R);
 	}
-
+	/**
+	 * 合并方法
+	 *
+     * @param arr 数组
+     * @param L 左边界
+     * @param M 中间
+     * @param R  有边界
+	 * @author lihaojie
+	 * @date 2023/04/12 17:02
+	 */
 	public static void merge(int[] arr, int L, int M, int R) {
 		int[] help = new int[R - L + 1];
 		int i = 0;
@@ -44,7 +62,14 @@ public class Code01_MergeSort {
 		}
 	}
 
-	// 非递归方法实现
+	/**
+	 * 归并排序
+	 * 
+     * @param arr  数组
+	 * @return void 
+	 * @author lihaojie
+	 * @date 2023/04/12 17:01
+	 */
 	public static void mergeSort2(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
@@ -72,7 +97,15 @@ public class Code01_MergeSort {
 		}
 	}
 
-	// for test
+	/**
+	 * 生成随机数组
+	 *
+     * @param maxSize 最大长度
+     * @param maxValue  最大值
+	 * @return int[]
+	 * @author lihaojie
+	 * @date 2023/04/12 16:57
+	 */
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
 		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
 		for (int i = 0; i < arr.length; i++) {
@@ -81,7 +114,14 @@ public class Code01_MergeSort {
 		return arr;
 	}
 
-	// for test
+	/**
+	 * 拷贝数组
+	 *
+     * @param arr  数组
+	 * @return int[]
+	 * @author lihaojie
+	 * @date 2023/04/12 16:56
+	 */
 	public static int[] copyArray(int[] arr) {
 		if (arr == null) {
 			return null;
@@ -93,7 +133,15 @@ public class Code01_MergeSort {
 		return res;
 	}
 
-	// for test
+	/**
+	 * 两个数组比较是否相等
+	 *
+     * @param arr1 数组1
+     * @param arr2  数组2
+	 * @return boolean
+	 * @author lihaojie
+	 * @date 2023/04/12 16:55
+	 */
 	public static boolean isEqual(int[] arr1, int[] arr2) {
 		if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
 			return false;
@@ -112,7 +160,13 @@ public class Code01_MergeSort {
 		return true;
 	}
 
-	// for test
+	/**
+	 * 打印数组
+	 *
+     * @param arr  数组
+	 * @author lihaojie
+	 * @date 2023/04/12 16:55
+	 */
 	public static void printArray(int[] arr) {
 		if (arr == null) {
 			return;

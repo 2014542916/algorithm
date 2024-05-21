@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Code01_ReverseList {
 
+	//定义节点
 	public static class Node {
 		public int value;
 		public Node next;
@@ -13,7 +14,7 @@ public class Code01_ReverseList {
 			value = data;
 		}
 	}
-
+	//双向节点
 	public static class DoubleNode {
 		public int value;
 		public DoubleNode last;
@@ -27,6 +28,7 @@ public class Code01_ReverseList {
 	//  head
 	//   a    ->   b    ->  c  ->  null
 	//   c    ->   b    ->  a  ->  null
+	// 单链表节点
 	public static Node reverseLinkedList(Node head) {
 		Node pre = null;
 		Node next = null;
@@ -38,7 +40,7 @@ public class Code01_ReverseList {
 		}
 		return pre;
 	}
-
+	// 双向链表反转
 	public static DoubleNode reverseDoubleList(DoubleNode head) {
 		DoubleNode pre = null;
 		DoubleNode next = null;

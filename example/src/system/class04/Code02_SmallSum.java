@@ -1,4 +1,4 @@
-package class04;
+package system.class04;
 
 public class Code02_SmallSum {
 

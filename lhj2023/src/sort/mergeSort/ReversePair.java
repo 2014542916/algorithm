@@ -1,8 +1,8 @@
-package system.class04;
+package sort.mergeSort;
 
-public class Code03_ReversePair {
+public class ReversePair {
 
-	public static int reverPairNumber(int[] arr) {
+	public static int reversePairNumber(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return 0;
 		}
@@ -14,34 +14,39 @@ public class Code03_ReversePair {
 	// 左 排序 merge并产生逆序对数量
 	// 右 排序 merge并产生逆序对数量
 	public static int process(int[] arr, int l, int r) {
+		// 判断边界条件
 		if (l == r) {
 			return 0;
 		}
-		// l < r
-		int mid = l + ((r - l) >> 1);
-		return process(arr, l, mid) + process(arr, mid + 1, r) + merge(arr, l, mid, r);
+		int mid = l + ((r-l) >> 1);
+		return process(arr, l, mid) + process(arr, mid+1, r) + merge(arr, l, mid, r);
 	}
 
-	public static int merge(int[] arr, int L, int m, int r) {
-		int[] help = new int[r - L + 1];
-		int i = help.length - 1;
-		int p1 = m;
-		int p2 = r;
-		int res = 0;
-		while (p1 >= L && p2 > m) {
-			res += arr[p1] > arr[p2] ? (p2 - m) : 0;
-			help[i--] = arr[p1] > arr[p2] ? arr[p1--] : arr[p2--];
+	public static int merge(int[] arr, int l, int m, int r) {
+		int p1 = l;
+		int p2 = m + 1;
+		int i = 0;
+		int answer = 0;
+		int[] help = new int[r - l + 1];
+		while (p1 <= m && p2 <= r) {
+			answer += arr[p1] > arr[p2] ? m-p1 + 1 : 0;
+			// 方法一
+			//这里的等号 规定当两个数相等时，先拷贝那边的 根据问题来改变，在这里，我们想要找到右组中大于左组中某个数的个数。这时当遇到两个数相等时，我们要先复制左组 否则右组中的数将不会计入大于它的数
+			help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
+			// 方法二：数组逆序 在左组中找小于右组中某数的个数
+			/*answer += arr[p1] > arr[p2] ?r-p2+1 : 0;
+			help[i++] = arr[p1] > arr[p2] ? arr[p1++] : arr[p2++];*/
 		}
-		while (p1 >= L) {
-			help[i--] = arr[p1--];
+		while (p1 <= m) {
+			help[i++] = arr[p1++];
 		}
-		while (p2 > m) {
-			help[i--] = arr[p2--];
+		while (p2 <= r) {
+			help[i++] = arr[p2++];
 		}
 		for (i = 0; i < help.length; i++) {
-			arr[L + i] = help[i];
+			arr[l + i] = help[i];
 		}
-		return res;
+		return answer;
 	}
 
 	// for test
@@ -111,13 +116,13 @@ public class Code03_ReversePair {
 	// for test
 	public static void main(String[] args) {
 		int testTime = 500000;
-		int maxSize = 100;
+		int maxSize = 10;
 		int maxValue = 100;
 		System.out.println("测试开始");
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			if (reverPairNumber(arr1) != comparator(arr2)) {
+			if (reversePairNumber(arr1) != comparator(arr2)) {
 				System.out.println("Oops!");
 				printArray(arr1);
 				printArray(arr2);
